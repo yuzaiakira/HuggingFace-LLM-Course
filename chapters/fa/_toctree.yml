@@ -93,6 +93,12 @@
     title: 🤗 Datasets، تمام!
   - local: chapter5/8
     title: آزمون پایان فصل
+    quiz: 5
+
+- title: ۶- کتابخانه‌ی 🤗 Tokenizers
+  sections:
+  - local: chapter6/1
+    title: مقدمه
 
 - title: واژه‌نامه
   sections:
