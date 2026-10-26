@@ -75,6 +75,11 @@
     title: آزمون پایان فصل
     quiz: 4
 
+- title: ۵- کتابخانه‌ی 🤗 Datasets
+  sections:
+  - local: chapter5/1
+    title: مقدمه
+
 - title: واژه‌نامه
   sections:
   - local: glossary/1
