@@ -111,6 +111,8 @@
     title: توکِن‌سازی با Byte-Pair Encoding
   - local: chapter6/6
     title: توکِن‌سازی با WordPiece
+  - local: chapter6/7
+    title: توکِن‌سازی با Unigram
 
 - title: واژه‌نامه
   sections:
