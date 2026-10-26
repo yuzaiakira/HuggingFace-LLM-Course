@@ -85,6 +85,8 @@
     title: وقت برش‌زدن و قسمت‌بندی است
   - local: chapter5/4
     title: داده‌های بزرگ؟ 🤗 Datasets به کمک شما می‌آید!
+  - local: chapter5/5
+    title: ساختن دیتاست خودتان
 
 - title: واژه‌نامه
   sections:
