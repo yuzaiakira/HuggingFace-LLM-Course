@@ -109,6 +109,8 @@
     title: نرمال‌سازی و پیش‌توکِن‌سازی
   - local: chapter6/5
     title: توکِن‌سازی با Byte-Pair Encoding
+  - local: chapter6/6
+    title: توکِن‌سازی با WordPiece
 
 - title: واژه‌نامه
   sections:
