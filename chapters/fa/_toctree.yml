@@ -117,6 +117,9 @@
     title: ساختن یک توکِنایزر، گام‌به‌گام
   - local: chapter6/9
     title: توکِنایزرها، تمام!
+  - local: chapter6/10
+    title: آزمون پایان فصل
+    quiz: 6
 
 - title: واژه‌نامه
   sections:
