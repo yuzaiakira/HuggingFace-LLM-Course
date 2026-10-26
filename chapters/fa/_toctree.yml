@@ -71,6 +71,9 @@
     title: ساختن کارت مدل
   - local: chapter4/5
     title: بخش اول تکمیل شد!
+  - local: chapter4/6
+    title: آزمون پایان فصل
+    quiz: 4
 
 - title: واژه‌نامه
   sections:
