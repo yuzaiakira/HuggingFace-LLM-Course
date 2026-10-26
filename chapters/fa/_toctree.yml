@@ -20,6 +20,8 @@
     title: مدل‌ها
   - local: chapter2/5
     title: کار با چندین توالی
+  - local: chapter2/6
+    title: همه‌چیز را کنار هم بگذاریم
 
 - title: ۳- کوک کردن یک مدل از پیش تعلیم دیده
   sections:
