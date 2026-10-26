@@ -115,6 +115,8 @@
     title: توکِن‌سازی با Unigram
   - local: chapter6/8
     title: ساختن یک توکِنایزر، گام‌به‌گام
+  - local: chapter6/9
+    title: توکِنایزرها، تمام!
 
 - title: واژه‌نامه
   sections:
