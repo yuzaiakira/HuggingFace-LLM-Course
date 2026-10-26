@@ -9,6 +9,17 @@
     title: مقدمه
   - local: chapter1/2
     title: پردازش زبان طبیعی
+  - local: chapter1/3
+    title: ترنسفورمرها چه کارهایی می‌توانند انجام دهند؟
+  - local: chapter1/4
+    title: ترنسفورمرها چگونه کار می‌کنند؟
+  - local: chapter1/9
+    title: سوگیری و محدودیت‌ها
+  - local: chapter1/10
+    title: خلاصه
+  - local: chapter1/11
+    title: زمان آزمون!
+    quiz: 1
 
 - title: ۲- بکارگیری ترنسفورمرهای هاگینگ‌فِیس
   sections:
