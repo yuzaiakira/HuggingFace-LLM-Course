@@ -53,6 +53,8 @@
     title: یک حلقه‌ی تعلیم کامل
   - local: chapter3/5
     title: درک منحنی‌های یادگیری
+  - local: chapter3/6
+    title: کوک کردن، تمام!
 
 - title: ۴- به اشتراک‌گذاری مدل‌ها و توکِنایزرها
   sections:
