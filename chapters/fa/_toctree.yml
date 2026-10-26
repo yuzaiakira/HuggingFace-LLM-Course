@@ -87,6 +87,8 @@
     title: داده‌های بزرگ؟ 🤗 Datasets به کمک شما می‌آید!
   - local: chapter5/5
     title: ساختن دیتاست خودتان
+  - local: chapter5/6
+    title: جست‌وجوی معنایی با FAISS
 
 - title: واژه‌نامه
   sections:
