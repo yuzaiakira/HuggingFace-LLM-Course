@@ -101,6 +101,8 @@
     title: مقدمه
   - local: chapter6/2
     title: تعلیم یک توکِنایزر جدید از روی توکِنایزر قدیمی
+  - local: chapter6/3
+    title: قابلیت‌های ویژه‌ی توکِنایزرهای سریع
 
 - title: واژه‌نامه
   sections:
