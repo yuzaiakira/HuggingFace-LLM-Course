@@ -91,6 +91,8 @@
     title: جست‌وجوی معنایی با FAISS
   - local: chapter5/7
     title: 🤗 Datasets، تمام!
+  - local: chapter5/8
+    title: آزمون پایان فصل
 
 - title: واژه‌نامه
   sections:
