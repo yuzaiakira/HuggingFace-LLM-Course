@@ -55,6 +55,9 @@
     title: درک منحنی‌های یادگیری
   - local: chapter3/6
     title: کوک کردن، تمام!
+  - local: chapter3/7
+    title: آزمون پایان فصل
+    quiz: 3
 
 - title: ۴- به اشتراک‌گذاری مدل‌ها و توکِنایزرها
   sections:
