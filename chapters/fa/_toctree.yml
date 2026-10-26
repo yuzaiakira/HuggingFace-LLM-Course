@@ -89,6 +89,8 @@
     title: ساختن دیتاست خودتان
   - local: chapter5/6
     title: جست‌وجوی معنایی با FAISS
+  - local: chapter5/7
+    title: 🤗 Datasets، تمام!
 
 - title: واژه‌نامه
   sections:
