@@ -107,6 +107,8 @@
     title: توکِنایزرهای سریع در خط تولید پاسخ‌گویی به پرسش
   - local: chapter6/4
     title: نرمال‌سازی و پیش‌توکِن‌سازی
+  - local: chapter6/5
+    title: توکِن‌سازی با Byte-Pair Encoding
 
 - title: واژه‌نامه
   sections:
