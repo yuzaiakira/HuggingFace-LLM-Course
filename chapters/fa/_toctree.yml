@@ -99,6 +99,8 @@
   sections:
   - local: chapter6/1
     title: مقدمه
+  - local: chapter6/2
+    title: تعلیم یک توکِنایزر جدید از روی توکِنایزر قدیمی
 
 - title: واژه‌نامه
   sections:
