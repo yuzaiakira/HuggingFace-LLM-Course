@@ -121,6 +121,11 @@
     title: آزمون پایان فصل
     quiz: 6
 
+- title: ۷- وظایف کلاسیک NLP
+  sections:
+  - local: chapter7/1
+    title: مقدمه
+
 - title: واژه‌نامه
   sections:
   - local: glossary/1
