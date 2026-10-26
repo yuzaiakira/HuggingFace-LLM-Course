@@ -18,6 +18,8 @@
     title: پشت صحنه خط تولید
   - local: chapter2/3
     title: مدل‌ها
+  - local: chapter2/5
+    title: کار با چندین توالی
 
 - title: ۳- کوک کردن یک مدل از پیش تعلیم دیده
   sections:
