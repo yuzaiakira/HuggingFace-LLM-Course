@@ -26,6 +26,8 @@
     title: استفاده‌ی پایه به پایان رسید!
   - local: chapter2/8
     title: استقرار بهینه‌ی استنتاج
+  - local: chapter2/9
+    title: آزمون پایان فصل
 
 - title: ۳- کوک کردن یک مدل از پیش تعلیم دیده
   sections:
