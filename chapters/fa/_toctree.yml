@@ -181,6 +181,9 @@
     title: مقدمه‌ای بر گریدیو Blocks
   - local: chapter9/8
     title: گریدیو، تمام شد!
+  - local: chapter9/9
+    title: آزمون پایان فصل
+    quiz: 9
 
 - title: واژه‌نامه
   sections:
