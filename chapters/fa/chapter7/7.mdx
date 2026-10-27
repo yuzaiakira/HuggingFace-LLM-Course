@@ -1,5 +1,6 @@
 <FrameworkSwitchCourse {fw} />
-<FrameworkSwitchCourse {fw} />
+
+<div dir="rtl">
 
 # پاسخ به سوالات[[question-answering]]
 
@@ -34,7 +35,7 @@
 این همان مدلی است که با کد این بخش تعلیم داده و روی هاب بارگذاری شده است. می‌توانید آن را [اینجا](https://huggingface.co/huggingface-course/bert-finetuned-squad?context=%F0%9F%A4%97+Transformers+is+backed+by+the+three+most+popular+deep+learning+libraries+%E2%80%94+Jax%2C+PyTorch+and+TensorFlow+%E2%80%94+with+a+seamless+integration+between+them.+It%27s+straightforward+to+train+your+models+with+one+before+loading+them+for+inference+with+the+other.&question=Which+deep+learning+libraries+back+%F0%9F%A4%97+Transformers%3F) ببینید و پیش‌بینی‌هایش را بررسی کنید.
 
 > نکته
-> 💡 Encoder-only مدلs like BERT tend to be great at extracting answers to factoid questions like "Who invented the ترنسفورمر architecture?" but fare poorly when given open-ended questions like "Why is the sky blue?" In these more challenging cases, encoder-decoder مدلs like T5 and BART are typically used to synthesize the information in a way that's quite similar to [text summarization](/course/chapter7/5). If you're interested in this type of *generative* question answering, we recommend checking out our [demo](https://yjernite.github.io/lfqa.html) based on the [ELI5 دیتاسِت](https://huggingface.co/datasets/eli5).
+> 💡 مدل‌های فقط‌انکودر مانند BERT معمولاً برای استخراج پاسخ پرسش‌های واقع‌نما، مانند «چه کسی معماری ترنسفورمر را اختراع کرد؟»، عالی هستند، اما در برابر پرسش‌های باز مانند «چرا آسمان آبی است؟» عملکرد ضعیفی دارند. در این موارد دشوارتر، معمولاً از مدل‌های انکودر-دیکودر مانند T5 و BART برای ترکیب اطلاعات به روشی شبیه [خلاصه‌سازی متن](/course/chapter7/5) استفاده می‌شود. اگر به این نوع پاسخ‌گویی مولد به پرسش علاقه دارید، [نمونه‌ی ما](https://yjernite.github.io/lfqa.html) را که بر پایه‌ی [دیتاسِت ELI5](https://huggingface.co/datasets/eli5) است ببینید.
 
 ## Preparing the data[[preparing-the-data]]
 
@@ -42,7 +43,7 @@
 
 ### The SQuAD دیتاسِت[[the-squad-dataset]]
 
-طبق معمول، به لطف `load_دیتاسِت()` می‌توانیم دیتاسِت‌ها را تنها در یک مرحله دانلود و ذخیره کنیم:
+طبق معمول، به لطف `load_dataset()` می‌توانیم دیتاسِت‌ها را تنها در یک مرحله دانلود و ذخیره کنیم:
 
 ```py
 from datasets import load_dataset
@@ -122,9 +123,9 @@ print(raw_datasets["validation"][2]["question"])
 'Where did Super Bowl 50 take place?'
 ```
 
-we can see that the answer can indeed be one of the three possibilities we saw before.
+همان‌طور که می‌بینیم، پاسخ واقعاً می‌تواند یکی از سه گزینه‌ای باشد که پیش‌تر دیدیم.
 
-### Processing the تعلیم data[[processing-the-training-data]]
+### پردازش داده‌های تعلیم[[processing-the-training-data]]
 
 <Youtube id="qgaM0weJHpA"/>
 
@@ -139,7 +140,7 @@ model_checkpoint = "bert-base-cased"
 tokenizer = AutoTokenizer.from_pretrained(model_checkpoint)
 ```
 
-همانطور که قبلاً ذکر شد، ما یک مدل BERT را به دقت تنظیم خواهیم کرد، اما شما می‌توانید از هر نوع مدل دیگری استفاده کنید، مادامی که یک توکن‌ساز سریع پیاده‌سازی شده باشد. می‌توانید تمام معماری‌هایی را که با یک نسخه سریع ارائه می‌شوند در [این جدول بزرگ](https://huggingface.co/transformers/#supported-frameworks) مشاهده کنید، و برای بررسی اینکه شیء `توکِن‌ساز` که استفاده می‌کنید واقعاً توسط توکن‌سازها پشتیبانی می‌شود، می‌توانید به ویژگی `is_fast` آن نگاه کنید:
+همانطور که قبلاً ذکر شد، ما یک مدل BERT را به دقت تنظیم خواهیم کرد، اما شما می‌توانید از هر نوع مدل دیگری استفاده کنید، مادامی که یک توکن‌ساز سریع پیاده‌سازی شده باشد. می‌توانید تمام معماری‌هایی را که با یک نسخه سریع ارائه می‌شوند در [این جدول بزرگ](https://huggingface.co/transformers/#supported-frameworks) مشاهده کنید، و برای بررسی اینکه شیء `tokenizer` که استفاده می‌کنید واقعاً توسط توکن‌سازها پشتیبانی می‌شود، می‌توانید به ویژگی `is_fast` آن نگاه کنید:
 
 ```py
 tokenizer.is_fast
@@ -189,8 +190,8 @@ tokenizer.decode(inputs["input_ids"])
 
 - `max_length` برای تنظیم حداکثر طول (در اینجا ۱۰۰)
 - `truncation="only_second"` برای کوتاه کردن متن (که در جایگاه دوم قرار دارد) زمانی که سوال به همراه متن آن خیلی طولانی باشد.
-- `stride` to set the number of overlapping توکِن‌ها between two successive chunks (here 50)
-- `return_overflowing_توکِن‌ها=True` برای اینکه به توکن‌ساز اطلاع دهیم که ما توکن‌های سرریز شده را می‌خواهیم.
+- `stride` برای تعیین تعداد توکِن‌های هم‌پوشان بین دو تکه‌ی متوالی (اینجا ۵۰)
+- `return_overflowing_tokens=True` برای اینکه به توکن‌ساز اطلاع دهیم که ما توکن‌های سرریز شده را می‌خواهیم.
 
 ```py
 inputs = tokenizer(
@@ -358,7 +359,7 @@ print(f"Theoretical answer: {answer}, decoded example: {decoded_example}")
 در واقع، ما پاسخ را در متن نمی‌بینیم.
 
 > نکته
-> ✏️ **Your turn!** When using the XLNet architecture, padding is applied on the left and the question and context are switched. Adapt all the code we just saw to the XLNet architecture (and add `padding=True`). Be aware that the `[CLS]` توکِن may not be at the 0 position with padding applied.
+> ✏️ **نوبت شماست!** هنگام استفاده از معماری XLNet، هم‌ترازسازی در سمت چپ انجام می‌شود و پرسش و زمینه جابه‌جا می‌شوند. همه‌ی کدی را که دیدیم برای معماری XLNet تطبیق دهید (و `padding=True` را اضافه کنید). توجه داشته باشید که با اعمال هم‌ترازسازی، ممکن است توکِن `[CLS]` در جایگاه ۰ نباشد.
 
 حالا که پیش‌پردازش داده‌ی تعلیم را گام‌به‌گام دیدیم، آن را در تابعی جمع می‌کنیم که روی کل دیتاسِت تعلیم اعمال شود. هر ویژگی را تا طول بیشینه‌ی تعیین‌شده هم‌طول می‌کنیم، چون بیشتر زمینه‌ها طولانی‌اند و نمونه‌های متناظر به چند ویژگی تقسیم می‌شوند؛ بنابراین هم‌طول‌سازی پویا سودی ندارد:
 
@@ -442,9 +443,9 @@ len(raw_datasets["train"]), len(train_dataset)
 
 همان‌طور که می‌بینیم، پیش‌پردازش حدود ۱۰۰۰ ویژگی اضافه کرده است. مجموعه‌ی تعلیم آماده است؛ حالا پیش‌پردازش مجموعه‌ی اعتبارسنجی را بررسی کنیم!
 
-### Processing the validation data[[processing-the-validation-data]]
+### پردازش داده‌های اعتبارسنجی[[processing-the-validation-data]]
 
-پیش‌پردازش داده‌های اعتبارسنجی کمی آسان‌تر خواهد بود زیرا نیازی به تولید برچسب‌ها نداریم (مگر اینکه بخواهیم خطای اعتبارسنجی را محاسبه کنیم، اما این عدد واقعاً به ما کمک نمی‌کند که بفهمیم مدل چقدر خوب است). لذت واقعی تفسیر پیش‌بینی‌های مدل در محدوده‌های زمینه اصلی خواهد بود. برای این کار، فقط باید نگاشت‌های آفست و روشی برای تطبیق هر ویژگی ایجاد شده با ... ذخیره کنیم. original example it comes from. Since there is an ID column in the original دیتاسِت, we'll use that ID.
+پیش‌پردازش داده‌های اعتبارسنجی کمی آسان‌تر خواهد بود زیرا نیازی به تولید برچسب‌ها نداریم (مگر اینکه بخواهیم خطای اعتبارسنجی را محاسبه کنیم، اما این عدد واقعاً به ما کمک نمی‌کند بفهمیم مدل چقدر خوب است). لذت واقعی، تفسیر پیش‌بینی‌های مدل به‌صورت بازه‌هایی از زمینه‌ی اصلی است. برای این کار، فقط باید نگاشت‌های آفست و راهی برای تطبیق هر ویژگی ایجادشده با نمونه‌ی اصلیِ مربوط به آن ذخیره کنیم. از آنجا که دیتاسِت اصلی ستونی به نام شناسه دارد، از همان شناسه استفاده می‌کنیم.
 
 تنها چیزی که اینجا اضافه خواهیم کرد، کمی اصلاح نگاشت‌های آفست است. آن‌ها شامل آفست‌هایی برای سوال و متن خواهند بود، اما وقتی در مرحله پس‌پردازش باشیم، هیچ راهی برای دانستن اینکه کدام بخش از شناسه‌های ورودی مربوط به متن و کدام بخش مربوط به سوال است، نخواهیم داشت (روش `sequence_ids()` که استفاده کردیم فقط برای خروجی توکن‌ساز در دسترس است). بنابراین، آفست‌های مربوط به سوال را روی `None` تنظیم می‌کنیم:
 
@@ -500,15 +501,15 @@ len(raw_datasets["validation"]), len(validation_dataset)
 
 {#if fw === 'pt'}
 
-## Fine-tuning the مدل with the `Trainer` API[[fine-tuning-the-model-with-the-trainer-api]]
+## تنظیم دقیق مدل با API `Trainer`[[fine-tuning-the-model-with-the-trainer-api]]
 
-کد آموزشی این مثال بسیار شبیه کد بخش‌های قبلی خواهد بود -- سخت‌ترین کار نوشتن تابع `compute_metrics()` خواهد بود. از آنجایی که ما تمام نمونه‌ها را تا حداکثر طول تعیین‌شده پر کرده‌ایم، هیچ جمع‌آوری‌کننده داده‌ای برای تعریف وجود ندارد، بنابراین این محاسبه متریک در واقع تنها چیزی است که باید نگران آن باشیم. بخش دشوار، پس‌پردازش پیش‌بینی‌های مدل به بخش‌هایی از متن در متن اصلی خواهد بود. examples; once we have done that, the metric from the 🤗 Datasets کتابخانه will do most of the work for us.
+کد آموزشی این مثال بسیار شبیه کد بخش‌های قبلی خواهد بود -- سخت‌ترین کار نوشتن تابع `compute_metrics()` است. از آنجا که همه‌ی نمونه‌ها را تا حداکثر طول تعیین‌شده هم‌طول کرده‌ایم، نیازی به تعریف جمع‌کننده‌ی داده نیست و محاسبه‌ی معیار تنها چیزی است که باید نگران آن باشیم. بخش دشوار، پس‌پردازش پیش‌بینی‌های مدل به بازه‌هایی از متن در نمونه‌های اصلی است؛ پس از انجام این کار، معیار موجود در کتابخانه‌ی 🤗 Datasets بیشتر کار را برای ما انجام می‌دهد.
 
 {:else}
 
-## Fine-tuning the مدل with Keras[[fine-tuning-the-model-with-keras]]
+## تنظیم دقیق مدل با Keras[[fine-tuning-the-model-with-keras]]
 
-کد آموزشی این مثال بسیار شبیه کد بخش‌های قبلی خواهد بود، اما محاسبه معیارها به طور منحصر به فردی چالش برانگیز خواهد بود. از آنجایی که ما تمام نمونه‌ها را تا حداکثر طول تعیین شده پر کرده‌ایم، هیچ جمع‌کننده داده‌ای برای تعریف وجود ندارد، بنابراین این محاسبه معیار در واقع تنها چیزی است که باید نگران آن باشیم. بخش سخت، پس پردازش پیش‌بینی‌های مدل به بخش‌هایی از متن در مثال‌های اصلی خواهد بود؛ once we have done that, the metric from the 🤗 Datasets کتابخانه will do most of the work for us.
+کد آموزشی این مثال بسیار شبیه کد بخش‌های قبلی خواهد بود، اما محاسبه‌ی معیارها چالش ویژه‌ای خواهد داشت. از آنجا که همه‌ی نمونه‌ها را تا حداکثر طول تعیین‌شده هم‌طول کرده‌ایم، نیازی به تعریف جمع‌کننده‌ی داده نیست و محاسبه‌ی معیار تنها چیزی است که باید نگران آن باشیم. بخش دشوار، پس‌پردازش پیش‌بینی‌های مدل به بازه‌هایی از متن در نمونه‌های اصلی است؛ پس از انجام این کار، معیار موجود در کتابخانه‌ی 🤗 Datasets بیشتر کار را برای ما انجام می‌دهد.
 
 {/if}
 
@@ -527,11 +528,11 @@ len(raw_datasets["validation"]), len(validation_dataset)
 همانطور که در طول بررسی خط لوله [`question-answering`](/course/chapter6/3b) دیدیم، مدل، لوجیت‌ها را برای موقعیت‌های شروع و پایان پاسخ در شناسه‌های ورودی خروجی می‌دهد. مرحله پس‌پردازش مشابه کاری است که در آنجا انجام دادیم، بنابراین در اینجا یادآوری سریعی از اقداماتی که انجام دادیم، آورده شده است:
 
 - ما لوجیت‌های شروع و پایان مربوط به توکن‌های خارج از متن را پنهان کردیم.
-- We then converted the start and end logits into probabilities using a softmax.
-- We attributed a score to each `(start_توکِن, end_توکِن)` pair by taking the product of the corresponding two probabilities.
-- We looked for the pair with the maximum score that yielded a valid answer (e.g., a `start_توکِن` lower than `end_توکِن`).
+- سپس لوجیت‌های شروع و پایان را با استفاده از softmax به احتمال تبدیل کردیم.
+- به هر جفت `(start_token, end_token)` با ضرب دو احتمال متناظر امتیاز دادیم.
+- جفتی را پیدا کردیم که بیشترین امتیاز را داشت و پاسخی معتبر تولید می‌کرد (برای مثال، `start_token` آن از `end_token` کوچک‌تر بود).
 
-در اینجا ما این فرآیند را کمی تغییر خواهیم داد زیرا نیازی به محاسبه امتیازات واقعی نداریم (فقط پاسخ پیش‌بینی شده). این بدان معناست که می‌توانیم از مرحله softmax صرف نظر کنیم. برای سریع‌تر پیش رفتن، ما همچنین تمام جفت‌های `(start_توکِن, end_توکِن)` ممکن را امتیازدهی نمی‌کنیم، بلکه فقط آن‌هایی را که مربوط به بالاترین لوجیت‌های `n_best` هستند (با `n_best=20`) امتیازدهی می‌کنیم. از آنجایی که از softmax صرف نظر می‌کنیم، این امتیازات، امتیازات لوجیت خواهند بود و با جمع کردن شروع و پایان به دست می‌آیند. logits (instead of the product, because of the rule \\(\log(ab) = \log(a) + \log(b)\\)).
+در اینجا این فرایند را کمی تغییر می‌دهیم، زیرا نیازی به محاسبه‌ی امتیازهای واقعی نداریم (فقط پاسخ پیش‌بینی‌شده مهم است). بنابراین می‌توانیم از مرحله‌ی softmax صرف‌نظر کنیم. برای سرعت بیشتر، همه‌ی جفت‌های ممکن `(start_token, end_token)` را امتیازدهی نمی‌کنیم، بلکه فقط جفت‌های متناظر با `n_best` لوجیتِ بزرگ‌تر (با `n_best=20`) را بررسی می‌کنیم. از آنجا که از softmax صرف‌نظر می‌کنیم، این امتیازها امتیازهای لوجیت خواهند بود و با جمع‌کردن لوجیت‌های شروع و پایان به دست می‌آیند (به‌جای ضرب، بر اساس قاعده‌ی \\(\log(ab) = \log(a) + \log(b)\\)).
 
 برای نشان دادن همه‌ی این موارد به پیش‌بینی نیاز داریم. چون هنوز مدل را تعلیم نداده‌ایم، از مدل پیش‌فرض خط تولید QA استفاده می‌کنیم تا روی بخشی کوچک از مجموعه‌ی اعتبارسنجی پیش‌بینی بگیریم. همان تابع پردازش قبلی را به کار می‌بریم؛ چون به ثابت سراسری tokenizer وابسته است، موقتاً آن شیء را با توکِن‌ساز مدل مورد نظر جایگزین می‌کنیم:
 
@@ -617,9 +618,9 @@ for idx, feature in enumerate(eval_set):
 
 با این اطلاعات می‌توانیم کار اصلی را انجام دهیم: برای هر نمونه و سپس هر ویژگی مرتبط، امتیازهای logit مربوط به n_best جایگاه آغاز و پایان را بررسی می‌کنیم و موقعیت‌های نامعتبر را کنار می‌گذاریم:
 
-- An answer that wouldn't be inside the context
-- An answer with negative length
-- An answer that is too long (we limit the possibilities at `max_answer_length=30`)
+- پاسخی که درون زمینه قرار نمی‌گیرد
+- پاسخی با طول منفی
+- پاسخی که بیش از حد طولانی است (امکان‌ها را به `max_answer_length=30` محدود می‌کنیم)
 
 وقتی همه‌ی پاسخ‌های ممکن یک نمونه امتیاز گرفتند، پاسخی را که بهترین امتیاز logit را دارد انتخاب می‌کنیم:
 
@@ -895,7 +896,7 @@ model.compile(optimizer=optimizer)
 tf.keras.mixed_precision.set_global_policy("mixed_float16")
 ```
 
-در نهایت، ما آماده آموزش با `مدل.fit()` هستیم. ما از `PushToهابCallback` برای آپلود مدل به هاب پس از هر دوره استفاده می‌کنیم.
+در نهایت، ما آماده آموزش با `model.fit()` هستیم. ما از `PushToHubCallback` برای آپلود مدل به هاب پس از هر دوره استفاده می‌کنیم.
 
 {/if}
 
@@ -904,7 +905,7 @@ tf.keras.mixed_precision.set_global_policy("mixed_float16")
 {#if fw === 'pt'}
 
 > نکته
-> 💡 If the output directory you are using exists, it needs to be a local clone of the repository you want to push to (so set a new name if you get an error when defining your `Trainer`).
+> 💡 اگر دایرکتوری خروجی که استفاده می‌کنید از قبل وجود دارد، باید کلون محلی مخزنی باشد که می‌خواهید به آن پوش کنید (پس اگر هنگام تعریف `Trainer` خطا گرفتید، نام جدیدی تعیین کنید).
 
 در پایان همه‌چیز را به کلاس Trainer می‌دهیم و تعلیم را آغاز می‌کنیم:
 
@@ -934,7 +935,7 @@ model.fit(tf_train_dataset, callbacks=[callback], epochs=num_train_epochs)
 
 {/if}
 
-توجه داشته باشید که در حین آموزش، هر بار که مدل ذخیره می‌شود (در اینجا، هر دوره) در پس‌زمینه در هاب آپلود می‌شود. به این ترتیب، در صورت لزوم می‌توانید آموزش خود را روی دستگاه دیگری از سر بگیرید. کل آموزش مدتی طول می‌کشد (کمی بیش از یک ساعت روی Titan RTX)، بنابراین می‌توانید در حین ادامه آموزش، یک قهوه بنوشید یا برخی از بخش‌های دوره را که برایتان چالش‌برانگیزتر بوده است، دوباره بخوانید. همچنین توجه داشته باشید که as soon as the first epoch is finished, you will see some weights uploaded to the هاب and you can start playing with your مدل on its page.
+توجه داشته باشید که در حین آموزش، هر بار که مدل ذخیره می‌شود (در اینجا، هر دوره) در پس‌زمینه در هاب آپلود می‌شود. به این ترتیب، در صورت لزوم می‌توانید آموزش خود را روی دستگاه دیگری از سر بگیرید. کل آموزش مدتی طول می‌کشد (کمی بیش از یک ساعت روی Titan RTX)، بنابراین می‌توانید در حین ادامه آموزش، یک قهوه بنوشید یا برخی از بخش‌های دوره را که برایتان چالش‌برانگیزتر بوده است، دوباره بخوانید. همچنین توجه داشته باشید که به‌محض پایان اولین دوره، بخشی از وزن‌ها را می‌بینید که در هاب بارگذاری شده‌اند و می‌توانید کار با مدل خود را در صفحه‌ی آن آغاز کنید.
 
 {#if fw === 'pt'}
 
@@ -948,7 +949,7 @@ compute_metrics(start_logits, end_logits, validation_dataset, raw_datasets["vali
 
 {:else}
 
-پس از اتمام آموزش، می‌توانیم بالاخره مدل خود را ارزیابی کنیم (و دعا کنیم که تمام زمان محاسبه را صرف هیچ نکرده باشیم). متد `predict()` از `مدل` ما، پیش‌بینی‌ها را دریافت خواهد کرد و از آنجایی که ما تمام کار سخت تعریف تابع `compute_metrics()` را قبلاً انجام داده‌ایم، می‌توانیم نتایج خود را در یک خط واحد دریافت کنیم:
+پس از اتمام آموزش، می‌توانیم بالاخره مدل خود را ارزیابی کنیم (و دعا کنیم که تمام زمان محاسبه را صرف هیچ نکرده باشیم). متد `predict()` از `model` ما، پیش‌بینی‌ها را دریافت خواهد کرد و از آنجایی که ما تمام کار سخت تعریف تابع `compute_metrics()` را قبلاً انجام داده‌ایم، می‌توانیم نتایج خود را در یک خط واحد دریافت کنیم:
 
 ```python
 predictions = model.predict(tf_eval_dataset)
@@ -1157,13 +1158,13 @@ unwrapped_model = accelerator.unwrap_model(model)
 unwrapped_model.save_pretrained(output_dir, save_function=accelerator.save)
 ```
 
-خط اول نیازی به توضیح ندارد: به همه فرآیندها می‌گوید که قبل از ادامه، منتظر بمانند تا همه به آن مرحله برسند. این کار برای اطمینان از این است که قبل از ذخیره، مدل یکسانی را در هر فرآیند داریم. سپس `unwrapped_مدل` را که مدل پایه‌ای است که تعریف کرده‌ایم، برمی‌داریم. روش `accelerator.prepare()` مدل را طوری تغییر می‌دهد که در آموزش توزیع‌شده کار کند، بنابراین دیگر روش `save_از پیش تعلیم‌دیده()` را نخواهد داشت؛ روش `accelerator.unwrap_مدل()` آن مرحله را خنثی می‌کند. در نهایت، فراخوانی می‌کنیم `save_از پیش تعلیم‌دیده()` but tell that method to use `accelerator.save()` instead of `torch.save()`.
+خط اول نیازی به توضیح ندارد: به همه فرآیندها می‌گوید که قبل از ادامه، منتظر بمانند تا همه به آن مرحله برسند. این کار برای اطمینان از این است که قبل از ذخیره، مدل یکسانی را در هر فرآیند داریم. سپس `unwrapped_model` را که مدل پایه‌ای است که تعریف کرده‌ایم، برمی‌داریم. روش `accelerator.prepare()` مدل را طوری تغییر می‌دهد که در آموزش توزیع‌شده کار کند، بنابراین دیگر روش `save_pretrained()` را نخواهد داشت؛ روش `accelerator.unwrap_model()` آن مرحله را خنثی می‌کند. در نهایت، `save_pretrained()` را فراخوانی می‌کنیم، اما به آن می‌گوییم به‌جای `torch.save()` از `accelerator.save()` استفاده کند.
 
 پس از این کار باید مدلی داشته باشید که نتایجی شبیه مدل تعلیم‌دیده با Trainer تولید کند. مدل ما در [huggingface-course/bert-finetuned-squad-accelerate](https://huggingface.co/huggingface-course/bert-finetuned-squad-accelerate) در دسترس است. برای آزمایش تغییرها، کد حلقه‌ی تعلیم بالا را ویرایش کنید!
 
 {/if}
 
-## Using the کوک کردنd مدل[[using-the-fine-tuned-model]]
+## استفاده از مدل کوک‌شده[[using-the-fine-tuned-model]]
 
 قبلاً نشان دادیم چگونه مدل کوک‌شده روی هاب مدل را با ویجت استنتاج به کار ببرید. برای استفاده‌ی محلی از آن در یک pipeline فقط باید شناسه‌ی مدل را مشخص کنید:
 
