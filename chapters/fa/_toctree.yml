@@ -229,6 +229,8 @@
   sections:
   - local: chapter12/1
     title: مقدمه
+  - local: chapter12/2
+    title: یادگیری تقویتی روی مدل‌های زبانی بزرگ
 
 - title: واژه‌نامه
   sections:
