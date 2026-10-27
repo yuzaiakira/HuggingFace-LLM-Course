@@ -215,6 +215,8 @@
     title: کوک‌کردن با SFTTrainer
   - local: chapter11/4
     title: LoRA (انطباق رتبه‌کم)
+  - local: chapter11/5
+    title: ارزیابی
 
 - title: واژه‌نامه
   sections:
