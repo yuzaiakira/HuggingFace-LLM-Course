@@ -217,6 +217,8 @@
     title: LoRA (انطباق رتبه‌کم)
   - local: chapter11/5
     title: ارزیابی
+  - local: chapter11/6
+    title: نتیجه‌گیری
 
 - title: واژه‌نامه
   sections:
