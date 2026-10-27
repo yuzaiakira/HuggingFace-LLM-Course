@@ -179,6 +179,8 @@
     title: ویژگی‌های پیشرفته‌ی Interface
   - local: chapter9/7
     title: مقدمه‌ای بر گریدیو Blocks
+  - local: chapter9/8
+    title: گریدیو، تمام شد!
 
 - title: واژه‌نامه
   sections:
