@@ -127,6 +127,9 @@
     title: مقدمه
   - local: chapter7/8
     title: تسلط بر مدل‌های زبانی بزرگ
+  - local: chapter7/9
+    title: آزمون پایان فصل
+    quiz: 7
 
 - title: واژه‌نامه
   sections:
