@@ -211,6 +211,8 @@
     title: مقدمه
   - local: chapter11/2
     title: قالب‌های گفت‌وگو
+  - local: chapter11/3
+    title: کوک‌کردن با SFTTrainer
 
 - title: واژه‌نامه
   sections:
