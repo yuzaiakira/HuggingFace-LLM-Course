@@ -17,6 +17,8 @@
     title: ترنسفورمرهای 🤗 چگونه مسائل را حل می‌کنند
   - local: chapter1/6
     title: معماری‌های ترنسفورمر
+  - local: chapter1/7
+    title: آزمون بدون نمره
   - local: chapter1/9
     title: سوگیری و محدودیت‌ها
   - local: chapter1/10
