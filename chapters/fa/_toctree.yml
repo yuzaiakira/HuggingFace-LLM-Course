@@ -171,6 +171,8 @@
     title: ساختن اولین دمو
   - local: chapter9/3
     title: درک کلاس Interface
+  - local: chapter9/4
+    title: به‌اشتراک‌گذاری دموها با دیگران
 
 - title: واژه‌نامه
   sections:
