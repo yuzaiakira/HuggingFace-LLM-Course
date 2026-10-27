@@ -143,6 +143,11 @@
     title: آزمون پایان فصل
     quiz: 7
 
+- title: ۸- چگونه کمک بخواهیم
+  sections:
+  - local: chapter8/1
+    title: مقدمه
+
 - title: واژه‌نامه
   sections:
   - local: glossary/1
