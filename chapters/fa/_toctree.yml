@@ -151,6 +151,9 @@
     title: وقتی خطا می‌گیرید چه باید کرد
   - local: chapter8/3
     title: درخواست کمک در انجمن‌ها
+  - local: chapter8/4
+    title: اشکال‌زدایی خط لوله‌ی تعلیم
+    local_fw: { pt: chapter8/4, tf: chapter8/4_tf }
 
 - title: واژه‌نامه
   sections:
