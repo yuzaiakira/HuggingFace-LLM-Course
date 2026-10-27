@@ -223,6 +223,13 @@
     title: وقت آزمون!
     quiz: 11
 
+- title: ۱۲- ساختن مدل‌های استدلالی
+  subtitle: یادگیری ساخت مدل‌های استدلالی مانند DeepSeek R1
+  new: true
+  sections:
+  - local: chapter12/1
+    title: مقدمه
+
 - title: واژه‌نامه
   sections:
   - local: glossary/1
