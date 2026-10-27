@@ -194,6 +194,8 @@
     title: راه‌اندازی نمونه‌ی آرژیلا
   - local: chapter10/3
     title: بارگذاری دیتاسِت در آرژیلا
+  - local: chapter10/4
+    title: حاشیه‌گذاری دیتاسِت
 
 - title: واژه‌نامه
   sections:
