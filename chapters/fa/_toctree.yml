@@ -213,6 +213,8 @@
     title: قالب‌های گفت‌وگو
   - local: chapter11/3
     title: کوک‌کردن با SFTTrainer
+  - local: chapter11/4
+    title: LoRA (انطباق رتبه‌کم)
 
 - title: واژه‌نامه
   sections:
