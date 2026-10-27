@@ -239,6 +239,8 @@
     title: پیاده‌سازی GRPO در TRL
   - local: chapter12/5
     title: تمرین عملی برای کوک‌کردن مدل با GRPO
+  - local: chapter12/6
+    title: تمرین عملی با Unsloth
 
 - title: رویدادهای دوره
   sections:
