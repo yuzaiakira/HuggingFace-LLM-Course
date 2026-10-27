@@ -162,6 +162,12 @@
     title: آزمون پایان فصل
     quiz: 8
 
+- title: ۹- ساختن و به‌اشتراک‌گذاری دموها
+  subtitle: مدلی تعلیم دادم، اما چطور آن را نمایش دهم؟
+  sections:
+  - local: chapter9/1
+    title: مقدمه‌ای بر گریدیو
+
 - title: واژه‌نامه
   sections:
   - local: glossary/1
