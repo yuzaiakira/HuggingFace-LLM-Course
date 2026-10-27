@@ -19,6 +19,8 @@
     title: معماری‌های ترنسفورمر
   - local: chapter1/7
     title: آزمون بدون نمره
+  - local: chapter1/8
+    title: استنتاج با LLMها
   - local: chapter1/9
     title: سوگیری و محدودیت‌ها
   - local: chapter1/10
