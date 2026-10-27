@@ -235,6 +235,8 @@
     title: لحظه‌ی آها در مقاله‌ی DeepSeek R1
   - local: chapter12/3b
     title: درک پیشرفته‌ی GRPO در DeepSeekMath
+  - local: chapter12/4
+    title: پیاده‌سازی GRPO در TRL
 
 - title: رویدادهای دوره
   sections:
