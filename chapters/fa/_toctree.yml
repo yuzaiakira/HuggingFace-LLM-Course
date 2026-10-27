@@ -177,6 +177,8 @@
     title: یکپارچه‌سازی با هاب هاگینگ‌فیس
   - local: chapter9/6
     title: ویژگی‌های پیشرفته‌ی Interface
+  - local: chapter9/7
+    title: مقدمه‌ای بر گریدیو Blocks
 
 - title: واژه‌نامه
   sections:
