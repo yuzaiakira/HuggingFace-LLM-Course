@@ -241,6 +241,8 @@
     title: تمرین عملی برای کوک‌کردن مدل با GRPO
   - local: chapter12/6
     title: تمرین عملی با Unsloth
+  - local: chapter12/7
+    title: به‌زودی...
 
 - title: رویدادهای دوره
   sections:
