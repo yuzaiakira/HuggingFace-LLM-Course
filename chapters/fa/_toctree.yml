@@ -147,6 +147,8 @@
   sections:
   - local: chapter8/1
     title: مقدمه
+  - local: chapter8/2
+    title: وقتی خطا می‌گیرید چه باید کرد
 
 - title: واژه‌نامه
   sections:
