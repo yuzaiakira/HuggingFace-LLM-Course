@@ -29,6 +29,8 @@
     title: پشت صحنه خط تولید
   - local: chapter2/3
     title: مدل‌ها
+  - local: chapter2/4
+    title: توکِنایزرها
   - local: chapter2/5
     title: کار با چندین توالی
   - local: chapter2/6
