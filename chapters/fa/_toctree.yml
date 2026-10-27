@@ -158,6 +158,9 @@
     title: چگونه یک issue خوب بنویسیم
   - local: chapter8/6
     title: بخش دوم تمام شد!
+  - local: chapter8/7
+    title: آزمون پایان فصل
+    quiz: 8
 
 - title: واژه‌نامه
   sections:
