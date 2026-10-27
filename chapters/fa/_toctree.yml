@@ -237,6 +237,8 @@
     title: درک پیشرفته‌ی GRPO در DeepSeekMath
   - local: chapter12/4
     title: پیاده‌سازی GRPO در TRL
+  - local: chapter12/5
+    title: تمرین عملی برای کوک‌کردن مدل با GRPO
 
 - title: رویدادهای دوره
   sections:
