@@ -125,6 +125,8 @@
   sections:
   - local: chapter7/1
     title: مقدمه
+  - local: chapter7/2
+    title: دسته‌بندی توکِن
   - local: chapter7/8
     title: تسلط بر مدل‌های زبانی بزرگ
   - local: chapter7/9
