@@ -219,6 +219,9 @@
     title: ارزیابی
   - local: chapter11/6
     title: نتیجه‌گیری
+  - local: chapter11/7
+    title: وقت آزمون!
+    quiz: 11
 
 - title: واژه‌نامه
   sections:
