@@ -238,6 +238,8 @@
   sections:
   - local: events/1
     title: نشست‌های زنده و کارگاه‌ها
+  - local: events/2
+    title: رویداد انتشار بخش ۲
   - local: events/3
     title: جشن Gradio Blocks
 
