@@ -4,6 +4,8 @@
     {label: "Google Colab", value: "https://colab.research.google.com/github/huggingface/notebooks/blob/main/course/en/chapter12/grpo_finetune.ipynb"},
 ]} />
 
+<div dir="rtl">
+
 # تمرین عملی: ریزتنظیم یک مدل با GRPO
 
 حالا که نظریه را دیدید، بیایید آن را عملی کنیم! در این تمرین، یک مدل را با GRPO ریزتنظیم می‌کنید.
@@ -74,7 +76,7 @@ tokenizer = AutoTokenizer.from_pretrained(model_id)
 
 حالا پیکربندی LoRA را بارگذاری می‌کنیم. با استفاده از LoRA تعداد پارامترهای قابل‌آموزش و درنتیجه میزان حافظهٔ لازم برای ریزتنظیم مدل را کاهش می‌دهیم.
 
-اگر با LoRA آشنا نیستید، می‌توانید در [Chapter 11](https://huggingface.co/learn/course/en/chapter11/3) بیشتر دربارهٔ آن بخوانید.
+اگر با LoRA آشنا نیستید، می‌توانید در [فصل ۱۱](https://huggingface.co/learn/course/en/chapter11/3) بیشتر دربارهٔ آن بخوانید.
 
 ```python
 # Load LoRA
@@ -109,7 +111,7 @@ def reward_len(completions, **kwargs):
 
 حالا آرگومان‌های آموزش را تعریف می‌کنیم. با استفاده از کلاس `GRPOConfig`، آن‌ها را به سبک معمول `transformers` تعریف می‌کنیم.
 
-اگر برای نخستین بار است که آرگومان‌های آموزش را تعریف می‌کنید، برای اطلاعات بیشتر کلاس [TrainingArguments](https://huggingface.co/docs/transformers/en/main_classes/trainer#trainingarguments) یا برای مقدمه‌ای کامل [Chapter 2](https://huggingface.co/learn/course/en/chapter2/1) را ببینید.
+اگر برای نخستین بار است که آرگومان‌های آموزش را تعریف می‌کنید، برای اطلاعات بیشتر کلاس [TrainingArguments](https://huggingface.co/docs/transformers/en/main_classes/trainer#trainingarguments) یا برای مقدمه‌ای کامل [فصل ۲](https://huggingface.co/learn/course/en/chapter2/1) را ببینید.
 
 ```python
 # Training arguments
@@ -232,3 +234,4 @@ print(generated_text)
 # جمع‌بندی
 
 در این فصل دیدیم چگونه یک مدل را با GRPO ریزتنظیم کنیم. همچنین با نحوهٔ تفسیر نتایج آموزش و تولید متن با مدل آشنا شدیم.
+</div>
