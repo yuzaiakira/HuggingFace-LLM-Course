@@ -169,6 +169,8 @@
     title: مقدمه‌ای بر گریدیو
   - local: chapter9/2
     title: ساختن اولین دمو
+  - local: chapter9/3
+    title: درک کلاس Interface
 
 - title: واژه‌نامه
   sections:
