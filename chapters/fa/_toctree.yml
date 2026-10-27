@@ -175,6 +175,8 @@
     title: به‌اشتراک‌گذاری دموها با دیگران
   - local: chapter9/5
     title: یکپارچه‌سازی با هاب هاگینگ‌فیس
+  - local: chapter9/6
+    title: ویژگی‌های پیشرفته‌ی Interface
 
 - title: واژه‌نامه
   sections:
