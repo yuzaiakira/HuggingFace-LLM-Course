@@ -185,6 +185,12 @@
     title: آزمون پایان فصل
     quiz: 9
 
+- title: ۱۰- گردآوری دیتاسِت‌های باکیفیت
+  subtitle: چگونه از آرژیلا برای ساخت دیتاسِت‌های شگفت‌انگیز استفاده کنیم
+  sections:
+  - local: chapter10/1
+    title: مقدمه‌ای بر آرژیلا
+
 - title: واژه‌نامه
   sections:
   - local: glossary/1
