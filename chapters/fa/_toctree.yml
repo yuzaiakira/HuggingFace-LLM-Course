@@ -190,6 +190,8 @@
   sections:
   - local: chapter10/1
     title: مقدمه‌ای بر آرژیلا
+  - local: chapter10/2
+    title: راه‌اندازی نمونه‌ی آرژیلا
 
 - title: واژه‌نامه
   sections:
