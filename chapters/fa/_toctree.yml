@@ -192,6 +192,8 @@
     title: مقدمه‌ای بر آرژیلا
   - local: chapter10/2
     title: راه‌اندازی نمونه‌ی آرژیلا
+  - local: chapter10/3
+    title: بارگذاری دیتاسِت در آرژیلا
 
 - title: واژه‌نامه
   sections:
