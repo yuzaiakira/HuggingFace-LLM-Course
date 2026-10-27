@@ -167,6 +167,8 @@
   sections:
   - local: chapter9/1
     title: مقدمه‌ای بر گریدیو
+  - local: chapter9/2
+    title: ساختن اولین دمو
 
 - title: واژه‌نامه
   sections:
