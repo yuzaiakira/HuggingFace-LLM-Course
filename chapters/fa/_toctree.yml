@@ -173,6 +173,8 @@
     title: درک کلاس Interface
   - local: chapter9/4
     title: به‌اشتراک‌گذاری دموها با دیگران
+  - local: chapter9/5
+    title: یکپارچه‌سازی با هاب هاگینگ‌فیس
 
 - title: واژه‌نامه
   sections:
