@@ -196,6 +196,8 @@
     title: بارگذاری دیتاسِت در آرژیلا
   - local: chapter10/4
     title: حاشیه‌گذاری دیتاسِت
+  - local: chapter10/5
+    title: استفاده از دیتاسِت حاشیه‌گذاری‌شده
 
 - title: واژه‌نامه
   sections:
