@@ -204,6 +204,12 @@
     title: آزمون پایان فصل
     quiz: 10
 
+- title: ۱۱- کوک‌کردن مدل‌های زبانی بزرگ
+  subtitle: استفاده از تعلیم نظارت‌شده و انطباق رتبه‌کم برای کوک‌کردن یک مدل زبانی بزرگ
+  sections:
+  - local: chapter11/1
+    title: مقدمه
+
 - title: واژه‌نامه
   sections:
   - local: glossary/1
