@@ -200,6 +200,9 @@
     title: استفاده از دیتاسِت حاشیه‌گذاری‌شده
   - local: chapter10/6
     title: آرژیلا، تمام شد!
+  - local: chapter10/7
+    title: آزمون پایان فصل
+    quiz: 10
 
 - title: واژه‌نامه
   sections:
