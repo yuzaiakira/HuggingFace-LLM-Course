@@ -1,0 +1,91 @@
+# چگونه یک issue خوب بنویسیم[[how-to-write-a-good-issue]]
+<div dir="rtl">
+
+<CourseFloatingBanner chapter={8}
+  classNames="absolute z-10 right-0 top-0"
+  notebooks={[
+    {label: "Google Colab", value: "https://colab.research.google.com/github/huggingface/notebooks/blob/master/course/en/chapter8/section5.ipynb"},
+    {label: "Aws Studio", value: "https://studiolab.sagemaker.aws/import/github/huggingface/notebooks/blob/master/course/en/chapter8/section5.ipynb"},
+]} />
+
+وقتی با چیزی روبه‌رو می‌شوید که در یکی از کتابخانه‌های هاگینگ‌فیس درست به نظر نمی‌رسد، حتماً به ما اطلاع دهید تا بتوانیم آن را اصلاح کنیم (همین موضوع درباره‌ی هر کتابخانه‌ی متن‌باز دیگری هم صدق می‌کند). اگر کاملاً مطمئن نیستید باگ در کد شماست یا در یکی از کتابخانه‌های ما، نخستین جایی که باید بررسی کنید [انجمن‌ها](https://discuss.huggingface.co/) هستند. جامعه به شما کمک می‌کند موضوع را مشخص کنید و تیم هاگینگ‌فیس نیز گفت‌وگوهای آنجا را از نزدیک دنبال می‌کند.
+
+<Youtube id="_PAli-V4wj0"/>
+
+وقتی مطمئن هستید که یک باگ در دست دارید، اولین قدم ساختن یک نمونه حداقل قابل تکرار است.
+
+## ایجاد یک مثال حداقل قابل تکرار[[creating-a-minimal-reproducible-example]]
+
+مهم است قطعه‌کدی را که باگ را ایجاد می‌کند جدا کنید، چون هیچ‌کس در تیم هاگینگ‌فیس (هنوز) جادوگر نیست و نمی‌تواند چیزی را که نمی‌بیند اصلاح کند. یک مثال حداقلیِ قابل‌بازتولید، همان‌طور که از نامش پیداست، باید قابل‌بازتولید باشد. این یعنی نباید به فایل یا داده‌ی خارجی‌ای که ممکن است در اختیار داشته باشید وابسته باشد. داده‌های مورد استفاده را با مقادیر ساختگی شبیه مقادیر واقعی جایگزین کنید؛ مقادیری که همچنان همان خطا را ایجاد می‌کنند.
+
+> [!TIP]
+> 🚨 بسیاری از issueهای مخزن 🤗 ترنسفورمرها حل‌نشده باقی مانده‌اند، چون داده‌های لازم برای بازتولید آن‌ها در دسترس نیست.
+
+وقتی چیزی مستقل و کامل دارید، می‌توانید آن را به خطوط کد کمتری کاهش دهید و چیزی بسازید که آن را _مثال حداقلیِ قابل‌بازتولید_ می‌نامیم. این کار کمی تلاش بیشتر می‌خواهد، اما اگر بازتولیدکننده‌ی کوتاه و خوبی برای باگ ارائه دهید، تقریباً حتماً کمک و اصلاحیه دریافت خواهید کرد.
+
+اگر به‌اندازه‌ی کافی راحت هستید، کد منبعی را که باگ در آن رخ می‌دهد بررسی کنید. شاید راه‌حل مشکل را پیدا کنید (و حتی بتوانید برای اصلاح آن یک pull request پیشنهاد دهید)، اما در حالت کلی این کار به نگه‌دارندگان کمک می‌کند هنگام خواندن گزارش شما منشأ مشکل را بهتر بفهمند.
+
+## پر کردن الگوی مشکل[[filling-out-the-issue-template]]
+
+هنگام ثبت issue متوجه می‌شوید الگویی برای تکمیل وجود دارد. در اینجا الگوی [issueهای 🤗 ترنسفورمرها](https://github.com/huggingface/transformers/issues/new/choose) را دنبال می‌کنیم، اما اگر در مخزن دیگری issue گزارش دهید، همان نوع اطلاعات لازم خواهد بود. الگو را خالی نگذارید: وقت‌گذاشتن برای تکمیل آن، شانس دریافت پاسخ و حل مشکل را به بیشترین مقدار می‌رساند.
+
+در حالت کلی هنگام ثبت issue همیشه مؤدب باشید. این یک پروژه‌ی متن‌باز است؛ بنابراین از نرم‌افزار رایگان استفاده می‌کنید و هیچ‌کس موظف نیست به شما کمک کند. می‌توانید نقدی را که به‌نظر خودتان موجه است در issue بنویسید، اما نگه‌دارندگان ممکن است آن را بد برداشت کنند و برای کمک عجله‌ای نداشته باشند. حتماً [آیین‌نامه‌ی رفتاری](https://github.com/huggingface/transformers/blob/master/CODE_OF_CONDUCT.md) پروژه را بخوانید.
+
+### از جمله اطلاعات محیطی شما[[including-your-environment-information]]
+
+🤗 ترنسفورمرها ابزاری برای دریافت همه‌ی اطلاعات مورد نیاز درباره‌ی محیط شما فراهم می‌کنند. کافی است دستور زیر را در ترمینال وارد کنید:
+
+```
+transformers-cli env
+```
+
+و شما باید چیزی شبیه به این دریافت کنید:
+
+```out
+Copy-and-paste the text below in your GitHub issue and FILL OUT the two last points.
+
+- `transformers` version: 4.12.0.dev0
+- Platform: Linux-5.10.61-1-MANJARO-x86_64-with-arch-Manjaro-Linux
+- Python version: 3.7.9
+- PyTorch version (GPU?): 1.8.1+cu111 (True)
+- Tensorflow version (GPU?): 2.5.0 (True)
+- Flax version (CPU?/GPU?/TPU?): 0.3.4 (cpu)
+- Jax version: 0.2.13
+- JaxLib version: 0.1.65
+- Using GPU in script?: <fill in>
+- Using distributed or parallel set-up in script?: <fill in>
+```
+
+همچنین می توانید یک `!` را در ابتدای دستور `transformers-cli env` اضافه کنید تا آن را از یک سلول نوت بوک اجرا کنید و سپس نتیجه را در ابتدای شماره خود کپی و جایگذاری کنید.
+
+### برچسب زدن افراد[[tagging-people]]
+
+تگ کردن افراد با تایپ `@` و به دنبال آن شناسه گیت‌هاب آنها، به آنها اعلانی ارسال می‌کند تا مشکل شما را ببینند و ممکن است سریع‌تر پاسخ دهند. از این روش با احتیاط استفاده کنید، زیرا افرادی که تگ می‌کنید ممکن است از مطلع شدن از چیزی که هیچ لینک مستقیمی به آن ندارند، خوششان نیاید. اگر فایل‌های منبع مربوط به اشکال خود را بررسی کرده‌اید، باید آخرین فردی را که در خطی که فکر می‌کنید تغییر ایجاد کرده است، تگ کنید. responsible for your problem (you can find this information by looking at said line on Gitهاب, selecting it, then clicking "View git blame").
+
+در غیر این صورت، قالب پیشنهادهایی برای تگ کردن افراد ارائه می‌دهد. به طور کلی، هرگز بیش از سه نفر را تگ نکنید!
+
+### از جمله یک مثال قابل تکرار[[including-a-reproducible-example]]
+
+اگر موفق شده‌اید مثالی مستقل بسازید که باگ را ایجاد می‌کند، اکنون زمان افزودن آن است! خطی شامل سه بک‌تیک و سپس `python` بنویسید، مانند زیر:
+
+```
+```python
+```
+
+then paste in your minimal reproducible example and type a new line with three backticks. This will ensure your code is properly formatted.
+
+If you didn't manage to create a reproducible example, explain in clear steps how you got to your issue. Include a link to a Google Colab notebook where you got the error if you can. The more information you share, the better able the maintainers will be to reply to you.
+
+In all cases, you should copy and paste the whole error message you are getting. If you're working in Colab, remember that some of the frames may be automatically collapsed in the stack trace, so make sure you expand them before copying. Like with the code sample, put that error message between two lines with three backticks, so it's properly formatted.
+
+### Describing the expected behavior[[describing-the-expected-behavior]]
+
+Explain in a few lines what you expected to get, so that the maintainers get a full grasp of the problem. This part is generally pretty obvious, so it should fit in one sentence, but in some cases you may have a lot to say.
+
+## بعد چه؟[[and-then-what]]
+
+Once your issue is filed, make sure to quickly check everything looks okay. You can edit the issue if you made a mistake, or even change its title if you realize the problem is different from what you initially thought.
+
+There is no point pinging people if you don't get an answer. If no one helps you in a few days, it's likely that no one could make sense of your problem. Don't hesitate to go back to the reproducible example. Can you make it shorter and more to the point? If you don't get an answer in a week, you can leave a message gently asking for help, especially if you've edited your issue to include more information on the problem.
+
+</div>
