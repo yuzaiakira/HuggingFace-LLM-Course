@@ -154,6 +154,8 @@
   - local: chapter8/4
     title: اشکال‌زدایی خط لوله‌ی تعلیم
     local_fw: { pt: chapter8/4, tf: chapter8/4_tf }
+  - local: chapter8/5
+    title: چگونه یک issue خوب بنویسیم
 
 - title: واژه‌نامه
   sections:
