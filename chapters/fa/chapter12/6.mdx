@@ -4,9 +4,11 @@
     {label: "Google Colab", value: "https://colab.research.google.com/github/unslothai/notebooks/blob/main/nb/HuggingFace%20Course-Gemma3_(1B)-GRPO.ipynb"},
 ]} />
 
+<div dir="rtl">
+
 # تمرین عملی: GRPO با Unsloth
 
-در این تمرین، با استفاده از Unsloth یک مدل را با GRPO (بهینه‌سازی خط‌مشی نسبی گروهی) ریزتنظیم می‌کنید تا توانایی‌های استدلالی آن بهبود یابد. GRPO را در [Chapter 3](/course/chapter3/3) بررسی کردیم.
+در این تمرین، با استفاده از Unsloth یک مدل را با GRPO (بهینه‌سازی خط‌مشی نسبی گروهی) ریزتنظیم می‌کنید تا توانایی‌های استدلالی آن بهبود یابد. GRPO را در [فصل ۳](/course/chapter3/3) بررسی کردیم.
 
 Unsloth کتابخانه‌ای است که ریزتنظیم LLM را شتاب می‌دهد و آموزش مدل‌ها را با سرعت بیشتر و منابع محاسباتی کمتر ممکن می‌کند. Unsloth به TRL متصل می‌شود؛ بنابراین بر مطالب بخش‌های قبلی تکیه می‌کنیم و آن‌ها را با ویژگی‌های Unsloth سازگار می‌سازیم.
 
@@ -69,7 +71,7 @@ model = FastLanguageModel.get_peft_model(
 این کد مدل را برای صرفه‌جویی در حافظه با کوانتیزه‌سازی ۴ بیتی بارگذاری می‌کند و برای ریزتنظیم کارآمد، LoRA (سازگارسازی کم‌رتبه) را اعمال می‌کند. پارامتر `target_modules` لایه‌هایی از مدل را که باید ریزتنظیم شوند مشخص می‌کند و `use_gradient_checkpointing` آموزش با زمینه‌های طولانی‌تر را فعال می‌سازد.
 
 > [!TIP]
-> در این فصل جزئیات LoRA را بررسی نمی‌کنیم، اما می‌توانید در [Chapter 11](/course/chapter11/3) بیشتر دربارهٔ آن بیاموزید.
+> در این فصل جزئیات LoRA را بررسی نمی‌کنیم، اما می‌توانید در [فصل ۱۱](/course/chapter11/3) بیشتر دربارهٔ آن بیاموزید.
 
 ## آماده‌سازی داده‌ها
 
@@ -141,7 +143,7 @@ dataset = get_gsm8k_questions()
 
 ## تعریف توابع پاداش
 
-همان‌طور که در [an earlier page](/course/chapter13/4) گفتیم، GRPO می‌تواند با تکیه بر معیارهای قابل‌راستی‌آزمایی مانند طول و قالب‌بندی، از توابع پاداش برای هدایت یادگیری مدل استفاده کند.
+همان‌طور که در [یک صفحه‌ی پیشین](/course/chapter13/4) گفتیم، GRPO می‌تواند با تکیه بر معیارهای قابل‌راستی‌آزمایی مانند طول و قالب‌بندی، از توابع پاداش برای هدایت یادگیری مدل استفاده کند.
 
 در این تمرین چند تابع پاداش تعریف می‌کنیم که جنبه‌های مختلف استدلال خوب را تقویت می‌کنند. برای نمونه، به مدل برای ارائهٔ پاسخ به‌صورت عدد صحیح و پیروی از قالب دقیق پاداش می‌دهیم.
 
@@ -207,16 +209,16 @@ def xmlcount_reward_func(completions, **kwargs) -> list[float]:
 
 این توابع پاداش هدف‌های متفاوتی دارند:
 
-| Reward Function | Purpose |
-|-----------------|---------|
-| `correctness_reward_func` | Rewards the model when its answer matches the correct answer |
-| `int_reward_func` | Rewards the model for providing a numeric answer |
-| `strict_format_reward_func` and `soft_format_reward_func` | Reward the model for following the specified format |
-| `xmlcount_reward_func` | Rewards proper XML tag usage and penalizes extra content after the closing tags |
+| تابع پاداش | هدف |
+|------------|-----|
+| `correctness_reward_func` | وقتی پاسخ مدل با پاسخ درست مطابقت دارد، به مدل پاداش می‌دهد |
+| `int_reward_func` | برای ارائه‌ی یک پاسخ عددی به مدل پاداش می‌دهد |
+| `strict_format_reward_func` و `soft_format_reward_func` | برای رعایت قالب مشخص‌شده به مدل پاداش می‌دهد |
+| `xmlcount_reward_func` | استفاده‌ی درست از برچسب‌های XML را پاداش می‌دهد و محتوای اضافی پس از برچسب‌های بسته‌شدن را جریمه می‌کند |
 
 ## آموزش با GRPO
 
-حالا آموزش‌دهندهٔ GRPO را با مدل، توکن‌ساز و توابع پاداش خود راه‌اندازی می‌کنیم. این بخش همان رویکرد [previous exercise](/course/chapter12/5) را دنبال می‌کند.
+حالا آموزش‌دهندهٔ GRPO را با مدل، توکن‌ساز و توابع پاداش خود راه‌اندازی می‌کنیم. این بخش همان رویکرد [تمرین قبلی](/course/chapter12/5) را دنبال می‌کند.
 
 ```python
 from trl import GRPOConfig, GRPOTrainer
@@ -362,6 +364,7 @@ model.push_to_hub_gguf(
 GRPO روشی قدرتمند برای هم‌راستا کردن مدل‌های زبانی با رفتارهای مشخص است و Unsloth آن را حتی روی سخت‌افزار محدود نیز در دسترس می‌کند. با ترکیب چند تابع پاداش، می‌توانید مدل را به پیروی از قالبی مشخص هدایت کنید و هم‌زمان توانایی‌های استدلالی آن را بهبود دهید.
 
 برای اطلاعات و منابع بیشتر، این موارد را ببینید:
-- [Unsloth Documentation](https://docs.unsloth.ai/)
-- [Unsloth Discord](https://discord.gg/unsloth)
-- [Unsloth GitHub](https://github.com/unslothai/unsloth)
+- [مستندات Unsloth](https://docs.unsloth.ai/)
+- [دیسکورد Unsloth](https://discord.gg/unsloth)
+- [گیت‌هاب Unsloth](https://github.com/unslothai/unsloth)
+</div>
