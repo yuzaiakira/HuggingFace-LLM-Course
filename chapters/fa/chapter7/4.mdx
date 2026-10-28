@@ -620,7 +620,7 @@ model.compile(optimizer=optimizer)
 tf.keras.mixed_precision.set_global_policy("mixed_float16")
 ```
 
-در مرحله بعد، همانطور که در [بخش 2]((/course/chapter7/2)) دیدیم، یک `PushToHubCallback` تعریف می‌کنیم تا مدل ما را در طول آموزش در هاب آپلود کند، و سپس به سادگی مدل را با آن callback برازش می‌دهیم:
+در مرحله بعد، همان‌طور که در [بخش ۲](/course/chapter7/2) دیدیم، یک `PushToHubCallback` تعریف می‌کنیم تا مدل ما را در طول آموزش در هاب آپلود کند، و سپس به‌سادگی مدل را با آن callback برازش می‌دهیم:
 
 ```python
 from transformers.keras_callbacks import PushToHubCallback
